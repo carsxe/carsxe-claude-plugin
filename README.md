@@ -23,6 +23,20 @@ Access the full suite of CarsXE vehicle data APIs directly from Claude Code — 
 
 All commands also have corresponding **skills** that Claude auto-invokes based on context — no need to type a command, just describe what you need naturally.
 
+## Installation
+
+**Step 1: Add the CarsXE marketplace**
+
+```bash
+/plugin marketplace add carsxe/carsxe-claude-plugin
+```
+
+**Step 2: Install the plugin**
+
+```bash
+/plugin install carsxe
+```
+
 ## Setup
 
 ### 1. Get your CarsXE API key
@@ -46,18 +60,6 @@ set CARSXE_API_KEY=your_api_key_here
 ```
 
 Or set it permanently via System Properties → Environment Variables.
-
-### 3. Install the plugin
-
-```bash
-claude plugin install github:carsxe/carsxe-claude-plugin
-```
-
-Or load it locally for testing:
-
-```bash
-claude --plugin-dir ./carsxe-plugin
-```
 
 ## Usage Examples
 
