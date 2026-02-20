@@ -1,5 +1,4 @@
 {
-  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "carsxe",
   "description": "CarsXE vehicle data APIs for Claude Code — decode VINs, look up license plates, get market values, history, recalls, liens, OBD codes, and more.",
   "owner": {
@@ -16,7 +15,7 @@
         "url": "https://api.carsxe.com"
       },
       "source": "./",
-      "repository": "https://github.com/carsxe/carsxe-claude-plugin",
+      "repo": "https://github.com/carsxe/claude-plugin",
       "category": "automotive",
       "homepage": "https://api.carsxe.com"
     }
