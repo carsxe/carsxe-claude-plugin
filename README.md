@@ -1,3 +1,5 @@
+[![Claude Code Plugin](https://img.shields.io/badge/Claude%20Code-Plugin-blue)](https://claude.com/plugins)
+
 # CarsXE Plugin for Claude Code
 
 Access the full suite of CarsXE vehicle data APIs directly from Claude Code — decode VINs, look up license plates, get market values, check history, recalls, liens, OBD codes, and more.
