@@ -1,0 +1,11 @@
+{
+  "name": "carsxe",
+  "description": "Access CarsXE vehicle data APIs — decode VINs, look up license plates, get market values, vehicle history, images, recalls, and more.",
+  "version": "1.0.0",
+  "author": {
+    "name": "CarsXE",
+    "url": "https://api.carsxe.com"
+  },
+  "homepage": "https://api.carsxe.com",
+  "repository": "https://github.com/carsxe"
+}
