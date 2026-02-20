@@ -29,7 +29,7 @@
         "international vin decoder"
       ],
       "source": "./",
-      "repo": "https://github.com/carsxe/claude-plugin",
+      "repository": "https://github.com/carsxe/claude-plugin",
       "category": "automotive",
       "homepage": "https://api.carsxe.com"
     }
