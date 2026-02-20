@@ -17,7 +17,8 @@
       },
       "source": {
         "source": "github",
-        "repo": "carsxe/carsxe-claude-plugin"
+        "repo": "carsxe/carsxe-claude-plugin",
+        "protocol": "https"
       },
       "category": "productivity",
       "homepage": "https://github.com/carsxe/carsxe-claude-plugin"
