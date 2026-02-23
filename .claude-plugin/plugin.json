@@ -7,6 +7,7 @@
     "url": "https://api.carsxe.com"
   },
   "homepage": "https://api.carsxe.com",
+  "license": "MIT",
   "repository": "https://github.com/carsxe/carsxe-claude-plugin",
   "keywords": [
     "specs",
