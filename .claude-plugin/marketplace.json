@@ -29,6 +29,7 @@
         "international vin decoder"
       ],
       "source": "./",
+      "license": "MIT",
       "repository": "https://github.com/carsxe/carsxe-claude-plugin",
       "category": "automotive",
       "homepage": "https://api.carsxe.com"
