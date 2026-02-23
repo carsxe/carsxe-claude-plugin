@@ -1,5 +1,5 @@
 {
-  "name": "carsxe-claude-plugin",
+  "name": "carsxe",
   "description": "CarsXE vehicle data APIs for Claude Code — decode VINs, look up license plates, get market values, history, recalls, lien and theft, OBD codes, and more.",
   "owner": {
     "name": "CarsXE",
@@ -7,7 +7,7 @@
   },
   "plugins": [
     {
-      "name": "carsxe-claude-plugin",
+      "name": "carsxe",
       "description": "Access the full suite of CarsXE vehicle data APIs directly from Claude Code.",
       "version": "1.0.0",
       "author": {
