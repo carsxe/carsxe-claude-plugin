@@ -15,20 +15,6 @@
         "name": "CarsXE",
         "url": "https://api.carsxe.com"
       },
-      "keywords": [
-        "specs",
-        "plate decoder",
-        "market value",
-        "vehicle history",
-        "recalls",
-        "lien and theft",
-        "OBD codes",
-        "plate image recognition",
-        "vin optical character recognition",
-        "year make model",
-        "images",
-        "international vin decoder"
-      ],
       "source": "./",
       "license": "MIT",
       "repository": "https://github.com/carsxe/carsxe-claude-plugin",
