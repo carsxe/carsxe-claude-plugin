@@ -46,7 +46,7 @@ Sign up at [api.carsxe.com](https://api.carsxe.com) and grab your API key.
 
 ### 2. Set your API key
 
-Get your API key from [api.carsxe.com/dashboard/developer](https://api.carsxe.com/dashboard/developer).
+Get your API key from [Here](https://api.carsxe.com/dashboard/developer).
 
 Run the auth command — it validates your key against the CarsXE API and sets it for the current session automatically:
 
