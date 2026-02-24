@@ -8,6 +8,7 @@ Access the full suite of CarsXE vehicle data APIs directly from Claude Code — 
 
 | Command                                    | Description                               |
 | ------------------------------------------ | ----------------------------------------- |
+| `/carsxe:auth <API_KEY>`                   | Validate and set your CarsXE API key      |
 | `/carsxe:specs <VIN>`                      | Decode a VIN — full vehicle specs         |
 | `/carsxe:plate <PLATE> <COUNTRY> [STATE]`  | Look up vehicle from license plate        |
 | `/carsxe:value <VIN>`                      | Get current market value                  |
@@ -43,23 +44,13 @@ All commands also have corresponding **skills** that Claude auto-invokes based o
 
 Sign up at [api.carsxe.com](https://api.carsxe.com) and grab your API key.
 
-### 2. Set your API key as an environment variable
+### 2. Set your API key
 
-**Mac/Linux:**
+Run the auth command — it validates your key against the CarsXE API and sets it for the current session automatically:
 
-```bash
-export CARSXE_API_KEY=your_api_key_here
 ```
-
-Add to your `.bashrc` or `.zshrc` to persist it.
-
-**Windows:**
-
-```cmd
-set CARSXE_API_KEY=your_api_key_here
+/carsxe:auth your_api_key_here
 ```
-
-Or set it permanently via System Properties → Environment Variables.
 
 ## Usage Examples
 
