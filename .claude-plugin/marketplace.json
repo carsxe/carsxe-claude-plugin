@@ -1,6 +1,8 @@
 {
   "name": "carsxe",
-  "description": "CarsXE vehicle data APIs for Claude Code — decode VINs, look up license plates, get market values, history, recalls, lien and theft, OBD codes, and more.",
+  "metadata": {
+    "description": "CarsXE vehicle data APIs for Claude Code — decode VINs, look up license plates, get market values, history, recalls, lien and theft, OBD codes, and more."
+  },
   "owner": {
     "name": "CarsXE",
     "email": "devops@carsxe.com"
@@ -12,9 +14,9 @@
       "version": "1.0.0",
       "author": {
         "name": "CarsXE",
-        "url": "https://api.carsxe.com"
+        "email": "devops@carsxe.com"
       },
-      "source": "./",
+      "source": "./carsxe",
       "license": "MIT",
       "repository": "https://github.com/carsxe/carsxe-claude-plugin",
       "homepage": "https://api.carsxe.com"
