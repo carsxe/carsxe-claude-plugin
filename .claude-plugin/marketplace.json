@@ -18,7 +18,6 @@
       },
       "source": "./carsxe",
       "license": "MIT",
-      "repository": "https://github.com/carsxe/carsxe-claude-plugin",
       "homepage": "https://api.carsxe.com"
     }
   ]
