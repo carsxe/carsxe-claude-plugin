@@ -7,7 +7,7 @@ When the user asks about a vehicle's history, past accidents, title status, or o
 
 1. Call the CarsXE History API:
    ```
-   GET https://api.carsxe.com/history?key={CARSXE_API_KEY}&vin={VIN}
+   GET https://api.carsxe.com/history?key={CARSXE_API_KEY}&vin={VIN}&source=claude_plugin
    ```
 2. Summarize the history report:
    - Number of previous owners

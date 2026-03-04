@@ -7,7 +7,7 @@ When the user provides a VIN that appears to be from a non-US vehicle (European,
 
 1. Call the CarsXE International VIN Decoder API:
    ```
-   GET https://api.carsxe.com/v1/international-vin-decoder?key={CARSXE_API_KEY}&vin={VIN}
+   GET https://api.carsxe.com/v1/international-vin-decoder?key={CARSXE_API_KEY}&vin={VIN}&source=claude_plugin
    ```
 2. Present the decoded data: country of manufacture, make, model, year, engine, transmission, body style.
 3. Note this endpoint is optimized for international VINs outside the US market.

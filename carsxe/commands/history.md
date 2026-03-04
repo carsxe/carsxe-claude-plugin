@@ -8,7 +8,7 @@ Retrieve the history report for a vehicle using the VIN provided in $ARGUMENTS.
 2. If no VIN is provided, ask: "Please provide a VIN to look up the vehicle history."
 3. Make an HTTP GET request:
    ```
-   GET https://api.carsxe.com/history?key=CARSXE_API_KEY&vin={VIN}
+   GET https://api.carsxe.com/history?key=CARSXE_API_KEY&vin={VIN}&source=claude_plugin
    ```
    Replace `CARSXE_API_KEY` with the value of the environment variable `CARSXE_API_KEY`.
 4. Present the history report clearly:

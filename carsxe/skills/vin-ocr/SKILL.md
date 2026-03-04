@@ -6,7 +6,7 @@ description: Extract a VIN from a photo or image URL using the CarsXE VIN OCR AP
 When the user shares an image containing a VIN (photo of dashboard, door jamb, windshield, etc.):
 
 1. Make an HTTP **POST** request to the CarsXE VIN OCR API:
-   - **URL:** `https://api.carsxe.com/v1/vinocr?key={CARSXE_API_KEY}`
+   - **URL:** `https://api.carsxe.com/v1/vinocr?key={CARSXE_API_KEY}&source=claude_plugin`
    - **Headers:** `Content-Type: application/json`
    - **Body:**
      ```json

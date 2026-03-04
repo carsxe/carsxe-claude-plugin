@@ -7,7 +7,7 @@ When the user asks about a vehicle's price, worth, or market value and has a VIN
 
 1. Call the CarsXE Market Value API:
    ```
-   GET https://api.carsxe.com/v2/marketvalue?key={CARSXE_API_KEY}&vin={VIN}
+   GET https://api.carsxe.com/v2/marketvalue?key={CARSXE_API_KEY}&vin={VIN}&source=claude_plugin
    ```
 2. Present the estimated market value clearly, including:
    - Current value estimate

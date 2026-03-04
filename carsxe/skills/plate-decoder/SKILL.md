@@ -17,7 +17,7 @@ When the user provides a license plate number:
 
 3. Call the CarsXE Plate Decoder API:
    ```
-   GET https://api.carsxe.com/v2/platedecoder?key={CARSXE_API_KEY}&plate={PLATE}&country={COUNTRY}&state={STATE}
+   GET https://api.carsxe.com/v2/platedecoder?key={CARSXE_API_KEY}&plate={PLATE}&country={COUNTRY}&state={STATE}&source=claude_plugin
    ```
 
 4. Present the results: vehicle Make, Model, Year, VIN (if returned), and registration info.

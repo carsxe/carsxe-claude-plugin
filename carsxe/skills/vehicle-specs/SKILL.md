@@ -7,7 +7,7 @@ When the user provides a VIN and asks about vehicle specs, details, or informati
 
 1. Call the CarsXE Specifications API:
    ```
-   GET https://api.carsxe.com/specs?key={CARSXE_API_KEY}&vin={VIN}
+   GET https://api.carsxe.com/specs?key={CARSXE_API_KEY}&vin={VIN}&source=claude_plugin
    ```
 2. Present the results in a clean, organized format covering:
    - Basic info: Make, Model, Year, Trim

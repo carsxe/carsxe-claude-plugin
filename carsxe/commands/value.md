@@ -8,7 +8,7 @@ Get the current market value of a vehicle using the VIN provided in $ARGUMENTS.
 2. If no VIN is provided, ask: "Please provide a VIN to get the market value (e.g., `/carsxe:value WBAFR7C57CC811956`)."
 3. Make an HTTP GET request:
    ```
-   GET https://api.carsxe.com/v2/marketvalue?key=<CARSXE_API_KEY>&vin=<VIN>
+   GET https://api.carsxe.com/v2/marketvalue?key=<CARSXE_API_KEY>&vin=<VIN>&source=claude_plugin
    ```
    Replace `<CARSXE_API_KEY>` with the value of the environment variable `CARSXE_API_KEY`.
 4. Present the results in a clear format:

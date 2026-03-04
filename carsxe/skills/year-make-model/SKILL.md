@@ -7,7 +7,7 @@ When the user asks about a vehicle by year, make, and model (without a VIN):
 
 1. Make an HTTP GET request:
    ```
-   GET https://api.carsxe.com/v1/ymm?key={CARSXE_API_KEY}&year={YEAR}&make={MAKE}&model={MODEL}[&trim={TRIM}]
+   GET https://api.carsxe.com/v1/ymm?key={CARSXE_API_KEY}&year={YEAR}&make={MAKE}&model={MODEL}&source=claude_plugin[&trim={TRIM}]
    ```
    Only include `trim` if the user specified one.
 2. Present available trims, engine options, features, and specs.

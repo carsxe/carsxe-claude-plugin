@@ -12,7 +12,7 @@ Decode an OBD diagnostic trouble code (DTC) provided in $ARGUMENTS using the Car
 3. Make an HTTP GET request:
 
    ```
-   GET https://api.carsxe.com/obdcodesdecoder?key=<CARSXE_API_KEY>&code=<CODE>
+   GET https://api.carsxe.com/obdcodesdecoder?key=<CARSXE_API_KEY>&code=<CODE>&source=claude_plugin
    ```
 
    Replace `<CARSXE_API_KEY>` with the value of the environment variable `CARSXE_API_KEY`.

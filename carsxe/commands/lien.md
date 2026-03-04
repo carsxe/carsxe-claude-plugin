@@ -8,7 +8,7 @@ Check for active liens and theft records on a vehicle using the VIN provided in 
 2. If no VIN is provided, ask: "Please provide a VIN to check for liens and theft records (e.g., `/carsxe:lien WBAFR7C57CC811956`)."
 3. Make an HTTP GET request:
    ```
-   GET https://api.carsxe.com/v1/lien-theft?key=<CARSXE_API_KEY>&vin=<VIN>
+   GET https://api.carsxe.com/v1/lien-theft?key=<CARSXE_API_KEY>&vin=<VIN>&source=claude_plugin
    ```
    Replace `<CARSXE_API_KEY>` with the value of the environment variable `CARSXE_API_KEY`.
 4. Present the results clearly:

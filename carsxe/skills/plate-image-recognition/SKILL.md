@@ -6,7 +6,7 @@ description: Extract a license plate number from an image URL using the CarsXE P
 When the user shares an image containing a license plate and wants to extract the plate number:
 
 1. Make an HTTP **POST** request:
-   - **URL:** `https://api.carsxe.com/platerecognition?key={CARSXE_API_KEY}`
+   - **URL:** `https://api.carsxe.com/platerecognition?key={CARSXE_API_KEY}&source=claude_plugin`
    - **Headers:** `Content-Type: application/json`
    - **Body:**
      ```json

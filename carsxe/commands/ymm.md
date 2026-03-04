@@ -17,7 +17,7 @@ Look up vehicle data by Year, Make, and Model using the CarsXE YMM API.
 3. Make an HTTP GET request:
 
    ```
-   GET https://api.carsxe.com/v1/ymm?key=<CARSXE_API_KEY>&year=<YEAR>&make=<MAKE>&model=<MODEL>[&trim=<TRIM>]
+   GET https://api.carsxe.com/v1/ymm?key=<CARSXE_API_KEY>&year=<YEAR>&make=<MAKE>&model=<MODEL>&source=claude_plugin[&trim=<TRIM>]
    ```
 
    Replace `<CARSXE_API_KEY>` with the value of the environment variable `CARSXE_API_KEY`. Only include `trim` if the user specified it.

@@ -14,7 +14,7 @@ Decode the VIN provided in $ARGUMENTS using the CarsXE Specifications API.
 3. Make an HTTP GET request:
 
    ```
-   GET https://api.carsxe.com/specs?key=<CARSXE_API_KEY>&vin=<VIN>[&deepdata=true][&disableIntVINDecoding=true]
+   GET https://api.carsxe.com/specs?key=<CARSXE_API_KEY>&vin=<VIN>&source=claude_plugin[&deepdata=true][&disableIntVINDecoding=true]
    ```
 
    Replace `<CARSXE_API_KEY>` with the value of the environment variable `CARSXE_API_KEY`.

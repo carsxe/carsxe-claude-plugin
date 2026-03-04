@@ -12,7 +12,7 @@ Validate the API key provided in $ARGUMENTS using the CarsXE Auth API. If valid,
 3. Make an HTTP GET request to validate the key:
 
    ```
-   GET https://api.carsxe.com/v1/auth/validate?key=<KEY>
+   GET https://api.carsxe.com/v1/auth/validate?key=<KEY>&source=claude_plugin
    ```
 
 4. Evaluate the response:

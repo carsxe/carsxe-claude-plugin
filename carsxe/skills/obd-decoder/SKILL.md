@@ -7,7 +7,7 @@ When the user mentions an OBD/DTC code and wants to know what it means:
 
 1. Make an HTTP GET request:
    ```
-   GET https://api.carsxe.com/obdcodesdecoder?key={CARSXE_API_KEY}&code={CODE}
+   GET https://api.carsxe.com/obdcodesdecoder?key={CARSXE_API_KEY}&code={CODE}&source=claude_plugin
    ```
 2. Present the decoded fault clearly: code, description, system affected, possible causes, and suggested fixes.
 3. Add context on severity — whether it requires immediate attention or can wait.

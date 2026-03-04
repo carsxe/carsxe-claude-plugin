@@ -23,7 +23,7 @@ Retrieve images for a vehicle using the CarsXE Images API.
 3. Make an HTTP GET request:
 
    ```
-   GET https://api.carsxe.com/images?key=<CARSXE_API_KEY>&make=<MAKE>&model=<MODEL>[&year=<YEAR>][&trim=<TRIM>][&color=<COLOR>][&transparent=<TRANSPARENT>][&angle=<ANGLE>][&photoType=<PHOTOTYPE>][&size=<SIZE>][&license=<LICENSE>]
+   GET https://api.carsxe.com/images?key=<CARSXE_API_KEY>&make=<MAKE>&model=<MODEL>&source=claude_plugin[&year=<YEAR>][&trim=<TRIM>][&color=<COLOR>][&transparent=<TRANSPARENT>][&angle=<ANGLE>][&photoType=<PHOTOTYPE>][&size=<SIZE>][&license=<LICENSE>]
    ```
 
    Replace `<CARSXE_API_KEY>` with the value of the environment variable `CARSXE_API_KEY`. Only include optional parameters if the user specified them.

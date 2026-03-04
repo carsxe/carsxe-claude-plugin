@@ -7,7 +7,7 @@ When the user asks about recalls or safety issues for a vehicle (by VIN):
 
 1. Call the CarsXE Recalls API:
    ```
-   GET https://api.carsxe.com/v1/recalls?key={CARSXE_API_KEY}&vin={VIN}
+   GET https://api.carsxe.com/v1/recalls?key={CARSXE_API_KEY}&vin={VIN}&source=claude_plugin
    ```
 2. Present recall details:
    - Total number of open recalls

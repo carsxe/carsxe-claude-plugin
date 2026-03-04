@@ -7,7 +7,7 @@ When the user asks to see images or photos of a vehicle (by make, model, year):
 
 1. Call the CarsXE Images API:
    ```
-   GET https://api.carsxe.com/images?key={CARSXE_API_KEY}&make={MAKE}&model={MODEL}&year={YEAR}
+   GET https://api.carsxe.com/images?key={CARSXE_API_KEY}&make={MAKE}&model={MODEL}&year={YEAR}&source=claude_plugin
    ```
 2. Display the returned image URLs, rendering them inline if the environment supports it.
 3. Label images by type/angle if available.

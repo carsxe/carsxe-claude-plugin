@@ -8,7 +8,7 @@ Decode an international VIN provided in $ARGUMENTS using the CarsXE Internationa
 2. If no VIN is provided, ask: "Please provide an international VIN to decode (e.g., `/carsxe:intvin WF0MXXGBWM8R43240`)."
 3. Make an HTTP GET request:
    ```
-   GET https://api.carsxe.com/v1/international-vin-decoder?key=<CARSXE_API_KEY>&vin=<VIN>
+   GET https://api.carsxe.com/v1/international-vin-decoder?key=<CARSXE_API_KEY>&vin=<VIN>&source=claude_plugin
    ```
    Replace `<CARSXE_API_KEY>` with the value of the environment variable `CARSXE_API_KEY`.
 4. Present the decoded information:
