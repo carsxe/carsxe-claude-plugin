@@ -18,7 +18,7 @@
       },
       "source": "./carsxe",
       "license": "MIT",
-      "homepage": "https://api.carsxe.com"
+      "homepage": "https://api.carsxe.com/docs/integrations/claude-quickstart"
     }
   ]
 }

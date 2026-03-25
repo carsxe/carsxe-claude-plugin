@@ -1,28 +1,30 @@
 {
   "name": "carsxe",
   "description": "CarsXE vehicle data APIs — decode VINs, look up license plates, get market values, history, recalls, lien and theft, OBD codes, and more.",
-  "version": "1.0.0",
   "author": {
     "name": "CarsXE",
     "email": "devops@carsxe.com"
   },
-  "homepage": "https://api.carsxe.com",
+  "homepage": "https://api.carsxe.com/docs/integrations/claude-quickstart",
   "license": "MIT",
   "repository": "https://github.com/carsxe/carsxe-claude-plugin",
+  "category": "automotive",
   "keywords": [
-    "auth",
-    "api key validation",
-    "specs",
-    "plate decoder",
-    "market value",
-    "vehicle history",
+    "automotive",
+    "vehicle",
+    "vin",
+    "vin-decoder",
+    "plate-decoder",
+    "market-value",
+    "vehicle-history",
     "recalls",
-    "lien and theft",
-    "OBD codes",
-    "plate image recognition",
-    "vin optical character recognition",
-    "year make model",
-    "images",
-    "international vin decoder"
+    "lien",
+    "theft",
+    "obd",
+    "dtc",
+    "plate-recognition",
+    "vin-ocr",
+    "year-make-model",
+    "international-vin"
   ]
 }
