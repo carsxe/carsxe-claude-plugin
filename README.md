@@ -71,7 +71,6 @@ Run the auth command — it validates your key against the CarsXE API and sets i
 **Check market value:**
 
 ```
-/carsxe:value WBAFR7C57CC811956
 /carsxe:value WBAFR7C57CC811956 CA 45000 clean
 ```
 
