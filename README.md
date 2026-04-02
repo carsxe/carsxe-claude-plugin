@@ -11,7 +11,7 @@ Access the full suite of CarsXE vehicle data APIs directly from Claude Code — 
 | `/carsxe:auth <API_KEY>`                   | Validate and set your CarsXE API key      |
 | `/carsxe:specs <VIN>`                      | Decode a VIN — full vehicle specs         |
 | `/carsxe:plate <PLATE> <COUNTRY> [STATE]`  | Look up vehicle from license plate        |
-| `/carsxe:value <VIN>`                      | Get current market value                  |
+| `/carsxe:value <VIN> [STATE] [MILEAGE] [CONDITION]` | Get current market value         |
 | `/carsxe:history <VIN>`                    | Full vehicle history report               |
 | `/carsxe:images <MAKE> <MODEL> [YEAR]`     | Fetch vehicle photos                      |
 | `/carsxe:recalls <VIN>`                    | Check for open safety recalls             |
@@ -72,7 +72,10 @@ Run the auth command — it validates your key against the CarsXE API and sets i
 
 ```
 /carsxe:value WBAFR7C57CC811956
+/carsxe:value WBAFR7C57CC811956 CA 45000 clean
 ```
+
+Optional params: state (e.g. `CA`), mileage, condition (`excellent` | `clean` | `average` | `rough`)
 
 **Get vehicle history:**
 
