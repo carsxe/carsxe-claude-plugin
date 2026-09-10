@@ -2,7 +2,7 @@
 
 # CarsXE Plugin for Claude Code
 
-Access the full suite of CarsXE vehicle data APIs directly from Claude Code — decode VINs, look up license plates, get market values, check history, recalls, liens, OBD codes, and more.
+Access the full suite of CarsXE vehicle data APIs directly from Claude Code — decode VINs, look up license plates, get market values, check history, recalls (VIN, YMM, or batch), YMM options, ownership, liens, OBD codes, and more.
 
 ## Features
 
@@ -15,11 +15,15 @@ Access the full suite of CarsXE vehicle data APIs directly from Claude Code — 
 | `/carsxe:history <VIN>`                    | Full vehicle history report               |
 | `/carsxe:images <MAKE> <MODEL> [YEAR]`     | Fetch vehicle photos                      |
 | `/carsxe:recalls <VIN>`                    | Check for open safety recalls             |
+| `/carsxe:recalls-ymm <YEAR> <MAKE> <MODEL>` | Check recalls by year/make/model (no VIN) |
+| `/carsxe:recalls-batch <ACTION> ...`       | Bulk recalls: submit / status / results / download |
 | `/carsxe:intvin <VIN>`                     | Decode international (non-US) VINs        |
 | `/carsxe:ocr <IMAGE_URL>`                  | Extract VIN from a photo (POST)           |
 | `/carsxe:lien <VIN>`                       | Check for liens and theft records         |
 | `/carsxe:plateocr <IMAGE_URL>`             | Extract license plate from a photo (POST) |
 | `/carsxe:ymm <YEAR> <MAKE> <MODEL> [TRIM]` | Look up vehicle by Year/Make/Model        |
+| `/carsxe:ymm-options [YEAR] [MAKE] [MODEL]` | List year/make/model/trim/variant options |
+| `/carsxe:ownership <TYPE> ...`             | Owner & resident lookup (Enterprise)      |
 | `/carsxe:obd <CODE>`                       | Decode an OBD diagnostic trouble code     |
 
 All commands also have corresponding **skills** that Claude auto-invokes based on context — no need to type a command, just describe what you need naturally.
@@ -94,6 +98,20 @@ Optional params: state (e.g. `CA`), mileage, condition (`excellent` | `clean` | 
 /carsxe:recalls WBAFR7C57CC811956
 ```
 
+**Check recalls by year/make/model (no VIN):**
+
+```
+/carsxe:recalls-ymm 2023 Toyota Camry
+```
+
+**Bulk recall check:**
+
+```
+/carsxe:recalls-batch submit 1HGBH41JXMN109186 5YJSA1E26HF000001
+/carsxe:recalls-batch status brb_mnablbn7_wvbaqv
+/carsxe:recalls-batch results brb_mnablbn7_wvbaqv
+```
+
 **Decode an international VIN:**
 
 ```
@@ -124,6 +142,23 @@ Optional params: state (e.g. `CA`), mileage, condition (`excellent` | `clean` | 
 /carsxe:ymm 2020 Toyota Camry LE
 ```
 
+**List available years, makes, models, or variants:**
+
+```
+/carsxe:ymm-options
+/carsxe:ymm-options 2023 Toyota
+/carsxe:ymm-options dimension=variants year=2025 make=Lexus
+```
+
+**Look up registered owners (Enterprise):**
+
+```
+/carsxe:ownership vin 1FT8X3BT0BEA61538
+/carsxe:ownership person John Sample "123 Example St" 90210
+/carsxe:ownership address "123 Example St" 90210
+/carsxe:ownership zip 90210 gender=F min_age=45
+```
+
 **Decode an OBD code:**
 
 ```
@@ -136,6 +171,10 @@ Skills are automatically triggered by Claude based on the conversation context. 
 
 - _"What are the specs of VIN WBAFR7C57CC811956?"_ → triggers `vehicle-specs`
 - _"Does this car have any recalls?"_ → triggers `vehicle-recalls`
+- _"Any recalls on a 2023 Toyota Camry?"_ → triggers `recalls-ymm`
+- _"Check recalls for this list of VINs"_ → triggers `recalls-batch`
+- _"What Toyota models were sold in 2023?"_ → triggers `ymm-options`
+- _"Who is the registered owner of this VIN?"_ → triggers `ownership`
 - _"What does the check engine code P0300 mean?"_ → triggers `obd-decoder`
 
 ## API Documentation

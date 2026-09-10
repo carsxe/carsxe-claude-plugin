@@ -10,8 +10,8 @@ Markdown-based Claude Code plugin. No build step. Files are command/skill defini
 .claude-plugin/marketplace.json   # Marketplace metadata
 carsxe/
   .claude-plugin/plugin.json      # Plugin manifest
-  commands/                       # 14 explicit slash commands (*.md)
-  skills/                         # 11 auto-invoked skills (*/SKILL.md)
+  commands/                       # 17 explicit slash commands (*.md)
+  skills/                         # 15 auto-invoked skills (*/SKILL.md)
 ```
 
 ## Adding a Command
@@ -43,11 +43,16 @@ carsxe/
 | history | `/history` | GET |
 | images | `/images` | GET |
 | recalls | `/v1/recalls` | GET |
+| recalls-ymm | `/v1/recalls-ymm` | GET |
+| recalls-batch | `/v1/recalls-batch/submit` | POST (JSON body) |
+| recalls-batch | `/v1/recalls-batch/status\|results\|download` | GET |
 | intvin | `/v1/international-vin-decoder` | GET |
 | ocr | `/v1/vinocr` | POST (JSON body) |
 | lien | `/v1/lien-theft` | GET |
 | plateocr | `/platerecognition` | POST (JSON body) |
 | ymm | `/v1/ymm` | GET |
+| ymm-options | `/v1/ymm-options` | GET |
+| ownership | `/v1/ownership/vin\|person\|address\|zip` | GET |
 | obd | `/obdcodesdecoder` | GET |
 
 ## Versioning

@@ -30,3 +30,7 @@ Look up vehicle data by Year, Make, and Model using the CarsXE YMM API.
    - Standard features
 
 5. Handle errors gracefully (no data found, invalid params, auth error).
+
+## Notes
+
+- To list available years, makes, models, or variants first, use `/carsxe:ymm-options`.
