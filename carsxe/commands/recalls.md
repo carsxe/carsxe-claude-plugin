@@ -17,3 +17,8 @@ Check for active recalls on a vehicle using the VIN provided in $ARGUMENTS.
    - Whether each recall has been remedied
 5. If no recalls are found, clearly confirm the vehicle has no open recalls.
 6. Handle errors gracefully.
+
+## Notes
+
+- For year/make/model with no VIN use `/carsxe:recalls-ymm`.
+- For many VINs at once use `/carsxe:recalls-batch`.
