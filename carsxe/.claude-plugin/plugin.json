@@ -6,7 +6,7 @@
     "name": "CarsXE",
     "email": "devops@carsxe.com"
   },
-  "homepage": "https://api.carsxe.com/docs/integrations/claude-quickstart",
+  "homepage": "https://carsxe.com",
   "license": "MIT",
   "repository": "https://github.com/carsxe/carsxe-claude-plugin",
   "category": "automotive",

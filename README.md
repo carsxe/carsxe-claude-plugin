@@ -2,25 +2,25 @@
 
 # CarsXE Plugin for Claude Code
 
-Access the full suite of CarsXE vehicle data APIs directly from Claude Code — decode VINs, look up license plates, get market values, check history, recalls (VIN, YMM, or batch), YMM options, ownership, liens, OBD codes, and more.
+Access the full suite of [CarsXE](https://carsxe.com) vehicle data APIs directly from Claude Code — decode VINs, look up license plates, get market values, check history, recalls (VIN, YMM, or batch), YMM options, ownership, liens, OBD codes, and more.
 
 ## Features
 
 | Command                                    | Description                               |
 | ------------------------------------------ | ----------------------------------------- |
 | `/carsxe:auth <API_KEY>`                   | Validate and set your CarsXE API key      |
-| `/carsxe:specs <VIN>`                      | Decode a VIN — full vehicle specs         |
-| `/carsxe:plate <PLATE> <COUNTRY> [STATE]`  | Look up vehicle from license plate        |
-| `/carsxe:value <VIN> [STATE] [MILEAGE] [CONDITION]` | Get current market value         |
-| `/carsxe:history <VIN>`                    | Full vehicle history report               |
-| `/carsxe:images <MAKE> <MODEL> [YEAR]`     | Fetch vehicle photos                      |
-| `/carsxe:recalls <VIN>`                    | Check for open safety recalls             |
-| `/carsxe:recalls-ymm <YEAR> <MAKE> <MODEL>` | Check recalls by year/make/model (no VIN) |
-| `/carsxe:recalls-batch <ACTION> ...`       | Bulk recalls: submit / status / results / download |
-| `/carsxe:intvin <VIN>`                     | Decode international (non-US) VINs        |
+| `/carsxe:specs <VIN>`                      | Decode a VIN — full vehicle specs ([Vehicle Specifications](https://carsxe.com/vehicle-specifications)) |
+| `/carsxe:plate <PLATE> <COUNTRY> [STATE]`  | Look up vehicle from license plate ([Vehicle Plate Decoder](https://carsxe.com/vehicle-plate-decoder)) |
+| `/carsxe:value <VIN> [STATE] [MILEAGE] [CONDITION]` | Get current market value ([Vehicle Market Value](https://carsxe.com/vehicle-market-value)) |
+| `/carsxe:history <VIN>`                    | Full vehicle history report ([Vehicle History](https://carsxe.com/vehicle-history)) |
+| `/carsxe:images <MAKE> <MODEL> [YEAR]`     | Fetch vehicle photos ([Vehicle Images](https://carsxe.com/vehicle-images)) |
+| `/carsxe:recalls <VIN>`                    | Check for open safety recalls ([Vehicle Recalls](https://carsxe.com/vehicle-recalls)) |
+| `/carsxe:recalls-ymm <YEAR> <MAKE> <MODEL>` | Check recalls by year/make/model (no VIN) ([Vehicle Recalls](https://carsxe.com/vehicle-recalls)) |
+| `/carsxe:recalls-batch <ACTION> ...`       | Bulk recalls: submit / status / results / download ([Vehicle Recalls](https://carsxe.com/vehicle-recalls)) |
+| `/carsxe:intvin <VIN>`                     | Decode international (non-US) VINs ([International VIN Decoder](https://carsxe.com/international-vin-decoder)) |
 | `/carsxe:ocr <IMAGE_URL>`                  | Extract VIN from a photo (POST)           |
 | `/carsxe:lien <VIN>`                       | Check for liens and theft records         |
-| `/carsxe:plateocr <IMAGE_URL>`             | Extract license plate from a photo (POST) |
+| `/carsxe:plateocr <IMAGE_URL>`             | Extract license plate from a photo (POST) ([Vehicle Plate Decoder](https://carsxe.com/vehicle-plate-decoder)) |
 | `/carsxe:ymm <YEAR> <MAKE> <MODEL> [TRIM]` | Look up vehicle by Year/Make/Model        |
 | `/carsxe:ymm-options [YEAR] [MAKE] [MODEL]` | List year/make/model/trim/variant options |
 | `/carsxe:ownership <TYPE> ...`             | Owner & resident lookup (Enterprise)      |
@@ -46,7 +46,7 @@ All commands also have corresponding **skills** that Claude auto-invokes based o
 
 ### 1. Get your CarsXE API key
 
-Sign up at [api.carsxe.com](https://api.carsxe.com) and grab your API key.
+Sign up at [carsxe.com](https://carsxe.com) and grab your API key.
 
 ### 2. Set your API key
 
@@ -179,4 +179,14 @@ Skills are automatically triggered by Claude based on the conversation context. 
 
 ## API Documentation
 
-Full CarsXE API docs: [api.carsxe.com/docs](https://api.carsxe.com/docs)
+Full CarsXE API docs: [docs.carsxe.com](https://docs.carsxe.com)
+
+### Products
+
+- [Vehicle History](https://carsxe.com/vehicle-history)
+- [Vehicle Plate Decoder](https://carsxe.com/vehicle-plate-decoder)
+- [Vehicle Specifications](https://carsxe.com/vehicle-specifications)
+- [International VIN Decoder](https://carsxe.com/international-vin-decoder)
+- [Vehicle Images](https://carsxe.com/vehicle-images)
+- [Vehicle Recalls](https://carsxe.com/vehicle-recalls)
+- [Vehicle Market Value](https://carsxe.com/vehicle-market-value)
