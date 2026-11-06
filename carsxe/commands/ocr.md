@@ -1,6 +1,10 @@
+---
+description: Extract a VIN from a photo URL via the CarsXE MCP server.
+---
+
 # CarsXE — VIN OCR (Extract VIN from Image)
 
-Extract a VIN from an image using the CarsXE VIN OCR API.
+Extract a VIN from an image using the CarsXE MCP tool `extract_vin_from_image`.
 
 ## Steps
 
@@ -9,23 +13,16 @@ Extract a VIN from an image using the CarsXE VIN OCR API.
 
 2. If no image URL is provided, ask: "Please provide a publicly accessible image URL containing a VIN (e.g., `/carsxe:ocr https://example.com/vin-photo.jpg`)."
 
-3. Make an HTTP **POST** request:
-   - **URL:** `https://api.carsxe.com/v1/vinocr?key=<CARSXE_API_KEY>&source=claude_plugin`
-   - **Headers:** `Content-Type: application/json`
-   - **Body (JSON):**
-     ```json
-     {
-       "image": "<IMAGE_URL>"
-     }
-     ```
-     Replace `<CARSXE_API_KEY>` with the value of the environment variable `CARSXE_API_KEY`.
+3. If the `carsxe` MCP tools are unavailable, follow `/carsxe:auth` to connect. Call the hosted MCP tools rather than REST endpoints.
 
-4. Present the result:
+4. Call `extract_vin_from_image` with `{ "imageUrl": "<IMAGE_URL>" }`.
+
+5. Present the result:
    - Extracted VIN
    - Confidence score (if available)
    - Offer to immediately run `/carsxe:specs {extracted_vin}` to decode the full vehicle specs
 
-5. Handle errors gracefully:
+6. Handle errors gracefully:
    - Image not readable or too low quality → suggest the user try a clearer photo
    - No VIN detected → suggest retrying with a better angle or lighting
-   - Auth error → remind the user to set the `CARSXE_API_KEY` environment variable
+   - Not connected → follow `/carsxe:auth`

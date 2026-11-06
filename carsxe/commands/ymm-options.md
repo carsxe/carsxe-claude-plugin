@@ -1,6 +1,10 @@
+---
+description: List year, make, model, trim, or variant options via the CarsXE MCP server.
+---
+
 # CarsXE — Year / Make / Model Options
 
-List years, makes, models, trims, or variants for cascading dropdowns using the CarsXE YMM Options API.
+List years, makes, models, trims, or variants for cascading dropdowns using `get_ymm_options`.
 
 ## Steps
 
@@ -18,15 +22,11 @@ List years, makes, models, trims, or variants for cascading dropdowns using the 
    - `/carsxe:ymm-options 2023 Toyota Camry` → variants
    - `/carsxe:ymm-options dimension=variants year=2025 make=Lexus`
 
-2. Make an HTTP GET request. Include only the filters the user provided:
+2. If the `carsxe` MCP tools are unavailable, follow `/carsxe:auth` to connect. Call the hosted MCP tools rather than REST endpoints.
 
-   ```
-   GET https://api.carsxe.com/v1/ymm-options?key=<CARSXE_API_KEY>&source=claude_plugin[&dimension=<DIMENSION>][&year=<YEAR>][&make=<MAKE>][&model=<MODEL>][&trim=<TRIM>]
-   ```
+3. Call `get_ymm_options` with only the filters the user provided (`dimension`, `year`, `make`, `model`, `trim`).
 
-   Replace `<CARSXE_API_KEY>` with the value of the environment variable `CARSXE_API_KEY`.
-
-3. When `dimension` is omitted, the API returns one inferred list:
+4. When `dimension` is omitted, the tool returns one inferred list:
 
    | make | model | year | Returns |
    | ---- | ----- | ---- | ------- |
@@ -35,9 +35,9 @@ List years, makes, models, trims, or variants for cascading dropdowns using the 
    | ✓ | — | * | `models` |
    | ✓ | ✓ | * | `variants` |
 
-4. Present the returned list (`years`, `makes`, `models`, `trims`, or `variants`) as a clean bullet list. If `message` is present, show it. If `modelCount` is present (bulk variants), mention it — that value is the billed unit count.
+5. Present the returned list (`years`, `makes`, `models`, `trims`, or `variants`) as a clean bullet list. If `message` is present, show it. If `modelCount` is present (bulk variants), mention it — that value is the billed unit count.
 
-5. Handle errors gracefully (missing required filters, ambiguous model name, auth error).
+6. Handle errors gracefully (missing required filters, ambiguous model name, not connected).
 
 ## Notes
 

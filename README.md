@@ -2,13 +2,15 @@
 
 # CarsXE Plugin for Claude Code
 
-Access the full suite of [CarsXE](https://carsxe.com) vehicle data APIs directly from Claude Code — decode VINs, look up license plates, get market values, check history, recalls (VIN, YMM, or batch), YMM options, ownership, liens, OBD codes, and more.
+Access [CarsXE](https://carsxe.com) vehicle data from Claude — decode VINs, look up license plates, get market values, check history, recalls (VIN, YMM, or batch), YMM options, ownership, liens, OBD codes, and more.
+
+Lookups run through the hosted CarsXE MCP server at `https://mcp.carsxe.com/mcp`. You sign in with your CarsXE account. Usage is billed to your CarsXE plan.
 
 ## Features
 
 | Command                                    | Description                               |
 | ------------------------------------------ | ----------------------------------------- |
-| `/carsxe:auth <API_KEY>`                   | Validate and set your CarsXE API key      |
+| `/carsxe:auth`                             | Connect or verify the CarsXE MCP server   |
 | `/carsxe:specs <VIN>`                      | Decode a VIN — full vehicle specs ([Vehicle Specifications](https://carsxe.com/vehicle-specifications)) |
 | `/carsxe:plate <PLATE> <COUNTRY> [STATE]`  | Look up vehicle from license plate ([Vehicle Plate Decoder](https://carsxe.com/vehicle-plate-decoder)) |
 | `/carsxe:value <VIN> [STATE] [MILEAGE] [CONDITION]` | Get current market value ([Vehicle Market Value](https://carsxe.com/vehicle-market-value)) |
@@ -18,9 +20,9 @@ Access the full suite of [CarsXE](https://carsxe.com) vehicle data APIs directly
 | `/carsxe:recalls-ymm <YEAR> <MAKE> <MODEL>` | Check recalls by year/make/model (no VIN) ([Vehicle Recalls](https://carsxe.com/vehicle-recalls)) |
 | `/carsxe:recalls-batch <ACTION> ...`       | Bulk recalls: submit / status / results / download ([Vehicle Recalls](https://carsxe.com/vehicle-recalls)) |
 | `/carsxe:intvin <VIN>`                     | Decode international (non-US) VINs ([International VIN Decoder](https://carsxe.com/international-vin-decoder)) |
-| `/carsxe:ocr <IMAGE_URL>`                  | Extract VIN from a photo (POST)           |
+| `/carsxe:ocr <IMAGE_URL>`                  | Extract VIN from a photo                  |
 | `/carsxe:lien <VIN>`                       | Check for liens and theft records         |
-| `/carsxe:plateocr <IMAGE_URL>`             | Extract license plate from a photo (POST) ([Vehicle Plate Decoder](https://carsxe.com/vehicle-plate-decoder)) |
+| `/carsxe:plateocr <IMAGE_URL>`             | Extract license plate from a photo ([Vehicle Plate Decoder](https://carsxe.com/vehicle-plate-decoder)) |
 | `/carsxe:ymm <YEAR> <MAKE> <MODEL> [TRIM]` | Look up vehicle by Year/Make/Model        |
 | `/carsxe:ymm-options [YEAR] [MAKE] [MODEL]` | List year/make/model/trim/variant options |
 | `/carsxe:ownership <TYPE> ...`             | Owner & resident lookup (Enterprise)      |
@@ -44,19 +46,19 @@ All commands also have corresponding **skills** that Claude auto-invokes based o
 
 ## Setup
 
-### 1. Get your CarsXE API key
+Install the plugin and connect when prompted. The plugin uses the hosted CarsXE MCP server (`https://mcp.carsxe.com/mcp`) and you sign in with your CarsXE account. Usage is billed to your CarsXE plan.
 
-Sign up at [carsxe.com](https://carsxe.com) and grab your API key.
-
-### 2. Set your API key
-
-Get your API key from [Here](https://api.carsxe.com/dashboard/developer).
-
-Run the auth command — it validates your key against the CarsXE API and sets it for the current session automatically:
+If the connector is not signed in, run:
 
 ```
-/carsxe:auth your_api_key_here
+/carsxe:auth
 ```
+
+Docs: [Claude plugin quickstart](https://docs.carsxe.com/docs/integrations/claude-quickstart)
+
+## Data and network destinations
+
+This plugin sends the vehicle identifiers or images you provide to CarsXE, Inc. at mcp.carsxe.com and api.carsxe.com to perform the lookup. See the [privacy policy](https://carsxe.com/privacy-policy). Support: abraham@carsxe.com
 
 ## Usage Examples
 
@@ -177,9 +179,11 @@ Skills are automatically triggered by Claude based on the conversation context. 
 - _"Who is the registered owner of this VIN?"_ → triggers `ownership`
 - _"What does the check engine code P0300 mean?"_ → triggers `obd-decoder`
 
-## API Documentation
+## Documentation
 
-Full CarsXE API docs: [docs.carsxe.com](https://docs.carsxe.com)
+Full CarsXE docs: [docs.carsxe.com](https://docs.carsxe.com)
+
+Claude plugin quickstart: [docs.carsxe.com/docs/integrations/claude-quickstart](https://docs.carsxe.com/docs/integrations/claude-quickstart)
 
 ### Products
 

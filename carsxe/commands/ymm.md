@@ -1,6 +1,10 @@
+---
+description: Look up vehicle data by year, make, and model via the CarsXE MCP server.
+---
+
 # CarsXE — Year / Make / Model Lookup
 
-Look up vehicle data by Year, Make, and Model using the CarsXE YMM API.
+Look up vehicle data by Year, Make, and Model using `get_year_make_model`.
 
 ## Steps
 
@@ -14,22 +18,18 @@ Look up vehicle data by Year, Make, and Model using the CarsXE YMM API.
 
 2. If `year`, `make`, or `model` are missing, ask: "Please provide year, make, and model (e.g., `/carsxe:ymm 2020 Toyota Camry`)."
 
-3. Make an HTTP GET request:
+3. If the `carsxe` MCP tools are unavailable, follow `/carsxe:auth` to connect. Call the hosted MCP tools rather than REST endpoints.
 
-   ```
-   GET https://api.carsxe.com/v1/ymm?key=<CARSXE_API_KEY>&year=<YEAR>&make=<MAKE>&model=<MODEL>&source=claude_plugin[&trim=<TRIM>]
-   ```
+4. Call `get_year_make_model` with `year`, `make`, `model`, and `trim` only if the user specified it.
 
-   Replace `<CARSXE_API_KEY>` with the value of the environment variable `CARSXE_API_KEY`. Only include `trim` if the user specified it.
-
-4. Present the results in a clean format:
+5. Present the results in a clean format:
    - Available trims (if not specified)
    - Engine options, transmission, drivetrain
    - Fuel type and economy
    - Body style and dimensions
    - Standard features
 
-5. Handle errors gracefully (no data found, invalid params, auth error).
+6. Handle errors gracefully (no data found, invalid params, not connected).
 
 ## Notes
 

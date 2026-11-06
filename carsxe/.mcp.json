@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "carsxe": {
+      "type": "http",
+      "url": "https://mcp.carsxe.com/mcp"
+    }
+  }
+}

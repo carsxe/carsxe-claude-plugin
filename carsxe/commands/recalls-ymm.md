@@ -1,6 +1,10 @@
+---
+description: Check safety recalls by year, make, and model (no VIN) via the CarsXE MCP server.
+---
+
 # CarsXE — Recalls by Year / Make / Model
 
-Check safety recalls for a model line using year, make, and model — no VIN required.
+Check safety recalls for a model line using year, make, and model — no VIN required — via `get_recalls_by_ymm`.
 
 ## Steps
 
@@ -13,23 +17,19 @@ Check safety recalls for a model line using year, make, and model — no VIN req
 
 2. If `year`, `make`, or `model` are missing, ask: "Please provide year, make, and model (e.g., `/carsxe:recalls-ymm 2023 Toyota Camry`)."
 
-3. Make an HTTP GET request:
+3. If the `carsxe` MCP tools are unavailable, follow `/carsxe:auth` to connect. Call the hosted MCP tools rather than REST endpoints.
 
-   ```
-   GET https://api.carsxe.com/v1/recalls-ymm?key=<CARSXE_API_KEY>&year=<YEAR>&make=<MAKE>&model=<MODEL>&source=claude_plugin
-   ```
+4. Call `get_recalls_by_ymm` with `year`, `make`, and `model`.
 
-   Replace `<CARSXE_API_KEY>` with the value of the environment variable `CARSXE_API_KEY`.
-
-4. Present recall information clearly:
+5. Present recall information clearly:
    - Year, make, and model (normalized)
    - Number of recalls (`recall_count`) and whether any exist (`has_recalls`)
-   - For each recall: NHTSA campaign number, manufacturer, component, summary, consequence, remedy, report date
+   - For each recall: campaign number, manufacturer, component, summary, consequence, remedy, report date
    - Highlight `park_it`, `park_outside`, or over-the-air remedy flags when true
 
-5. If no recalls are found, clearly confirm the model line has no safety recalls.
+6. If no recalls are found, clearly confirm the model line has no safety recalls.
 
-6. Handle errors gracefully (invalid year/make/model, no data, auth error).
+7. Handle errors gracefully (invalid year/make/model, no data, not connected).
 
 ## Notes
 

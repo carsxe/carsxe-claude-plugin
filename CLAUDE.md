@@ -2,58 +2,60 @@
 
 ## What This Is
 
-Markdown-based Claude Code plugin. No build step. Files are command/skill definitions consumed directly by the Claude Code harness.
+Markdown-based Claude Code plugin. No build step. Files are command/skill definitions consumed directly by the Claude Code harness. Lookups go through the hosted CarsXE MCP server, not direct REST calls.
 
 ## Structure
 
 ```
 .claude-plugin/marketplace.json   # Marketplace metadata
 carsxe/
+  README.md                       # Directory listing copy (required)
+  LICENSE                         # MIT, Copyright (c) 2026 CarsXE, Inc.
+  .mcp.json                       # Hosted MCP connector
   .claude-plugin/plugin.json      # Plugin manifest
-  commands/                       # 17 explicit slash commands (*.md)
-  skills/                         # 15 auto-invoked skills (*/SKILL.md)
+  commands/                       # Explicit slash commands (*.md)
+  skills/                         # Auto-invoked skills (*/SKILL.md)
 ```
 
 ## Adding a Command
 
 1. Create `carsxe/commands/<name>.md`
-2. Follow existing command pattern: API URL, method, params, response format, error handling
-3. Always include `key=$CARSXE_API_KEY&source=claude_plugin` in query params
+2. Follow the existing command pattern: parse `$ARGUMENTS`, call the matching `carsxe` MCP tool, present the result, handle errors
+3. If the MCP tools are unavailable, point the user to `/carsxe:auth` (OAuth connect). Do not make REST requests to `api.carsxe.com`.
 
 ## Adding a Skill
 
 1. Create `carsxe/skills/<name>/SKILL.md`
 2. Add YAML frontmatter with `name` and `description` (description drives auto-invocation trigger)
-3. Follow existing skill pattern
+3. Follow existing skill pattern: invoke the matching MCP tool
 
-## API
+## MCP
 
-**Base URL:** `https://api.carsxe.com`
+**Server URL:** `https://mcp.carsxe.com/mcp` (declared in `carsxe/.mcp.json`)
 
-**Auth:** `CARSXE_API_KEY` env var — set via `/carsxe:auth <KEY>`, session-scoped, not persisted
+**Auth:** OAuth with a CarsXE account when the user connects the plugin. Usage is billed to their CarsXE plan.
 
-**Required params on every request:** `key=<CARSXE_API_KEY>&source=claude_plugin`
+**Docs:** https://docs.carsxe.com/docs/integrations/claude-quickstart
 
-| Command | Endpoint | Method |
-|---------|----------|--------|
-| auth | `/v1/auth/validate` | GET |
-| specs | `/specs` | GET |
-| plate | `/v2/platedecoder` | GET |
-| value | `/v2/marketvalue` | GET |
-| history | `/history` | GET |
-| images | `/images` | GET |
-| recalls | `/v1/recalls` | GET |
-| recalls-ymm | `/v1/recalls-ymm` | GET |
-| recalls-batch | `/v1/recalls-batch/submit` | POST (JSON body) |
-| recalls-batch | `/v1/recalls-batch/status\|results\|download` | GET |
-| intvin | `/v1/international-vin-decoder` | GET |
-| ocr | `/v1/vinocr` | POST (JSON body) |
-| lien | `/v1/lien-theft` | GET |
-| plateocr | `/platerecognition` | POST (JSON body) |
-| ymm | `/v1/ymm` | GET |
-| ymm-options | `/v1/ymm-options` | GET |
-| ownership | `/v1/ownership/vin\|person\|address\|zip` | GET |
-| obd | `/obdcodesdecoder` | GET |
+| Command | MCP tool |
+|---------|----------|
+| auth | Connect/verify the `carsxe` MCP server (OAuth) |
+| specs | `get_vehicle_specs` (then `render_vehicle_card` when the host supports it) |
+| plate | `decode_license_plate` |
+| value | `get_market_value` (then `render_market_value` when the host supports it) |
+| history | `get_vehicle_history` |
+| images | `get_vehicle_images` |
+| recalls | `get_vehicle_recalls` (then `render_recalls` when the host supports it) |
+| recalls-ymm | `get_recalls_by_ymm` |
+| recalls-batch | `submit_recalls_batch` / `get_recalls_batch_status` / `get_recalls_batch_results` / `download_recalls_batch` |
+| intvin | `decode_international_vin` |
+| ocr | `extract_vin_from_image` |
+| lien | `check_lien_and_theft` |
+| plateocr | `read_license_plate_from_image` |
+| ymm | `get_year_make_model` |
+| ymm-options | `get_ymm_options` |
+| ownership | `get_ownership_by_vin` / `get_ownership_by_person` / `get_ownership_by_address` / `get_ownership_by_zip` |
+| obd | `decode_obd_code` |
 
 ## Versioning
 
@@ -64,6 +66,6 @@ Version lives in two places — keep in sync:
 ## Testing
 
 No automated tests. Validate manually:
-1. Install plugin locally via marketplace
-2. Run `/carsxe:auth <KEY>` to authenticate
-3. Test affected commands with real API calls
+1. Install the plugin locally via marketplace
+2. Connect the `carsxe` MCP server (OAuth) — `/carsxe:auth` walks through this
+3. Test affected commands with real lookups

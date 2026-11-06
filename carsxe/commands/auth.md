@@ -1,36 +1,35 @@
-# CarsXE — Set & Validate API Key
+---
+description: Connect or verify the hosted CarsXE MCP server via OAuth.
+---
 
-Validate the API key provided in $ARGUMENTS using the CarsXE Auth API. If valid, set it as the `CARSXE_API_KEY` environment variable for the current session automatically — no manual `export` or `set` required.
+# CarsXE — Connect MCP
+
+Confirm the hosted CarsXE MCP server is connected. Sign-in uses your CarsXE account (OAuth). Call the hosted MCP tools; do not make REST requests to `api.carsxe.com`.
 
 ## Steps
 
-1. Parse $ARGUMENTS to extract:
-   - `key` (required): the CarsXE API key string to validate
+1. Check whether the `carsxe` MCP tools are available in this session (for example `get_vehicle_specs`, `decode_license_plate`, `get_market_value`).
 
-2. If no key is provided, ask: "Please provide your CarsXE API key (e.g., `/carsxe:auth YOUR_API_KEY`)."
+2. If they are available, confirm:
 
-3. Make an HTTP GET request to validate the key:
+   > CarsXE MCP is connected. You can use `/carsxe:*` commands and natural-language vehicle lookups. Usage is billed to your CarsXE plan.
 
-   ```
-   GET https://api.carsxe.com/v1/auth/validate?key=<KEY>&source=claude_plugin
-   ```
+3. If they are not available, walk the user through connecting. Do not invent extra config files or headers.
 
-4. Evaluate the response:
-   - If the response indicates the key is valid (e.g., `"valid": true` or a success status), proceed to step 5.
-   - If the response indicates the key is invalid or the request fails, tell the user: "The API key provided is invalid. Please check your key and try again." — do not set anything.
+   **claude.ai / Cowork**
+   - Open the plugin's Connectors tab
+   - Add or connect the `carsxe` server at `https://mcp.carsxe.com/mcp`
+   - Sign in with the CarsXE account when prompted, then retry the lookup
 
-5. Set `CARSXE_API_KEY` in the current session by running the appropriate shell command via the terminal tool:
-   - **Mac/Linux:** `export CARSXE_API_KEY=<KEY>`
-   - **Windows (cmd):** `set CARSXE_API_KEY=<KEY>`
-   - **Windows (PowerShell):** `$env:CARSXE_API_KEY="<KEY>"`
+   **Claude Code**
+   - After `/plugin install carsxe`, connect when prompted
+   - Or open `/mcp`, enable the `carsxe` server bundled with this plugin, and complete the CarsXE sign-in
+   - Then retry the lookup
 
-   Detect the current platform and run the correct command automatically.
-
-6. Confirm success to the user:
-   > "Your CarsXE API key has been validated and set for this session. You can now use all `/carsxe:*` commands."
+4. Docs: https://docs.carsxe.com/docs/integrations/claude-quickstart
 
 ## Notes
 
-- The key is never stored to disk — it is only set in the current shell session.
-- If the session ends, the key will need to be set again (or added to the shell profile by the user for persistence).
-- This command replaces any previously set `CARSXE_API_KEY` in the current session.
+- Authentication is the hosted MCP OAuth flow.
+- If the session ends or the connector is disconnected, the user signs in again the same way.
+- Usage is billed to the connected CarsXE plan.

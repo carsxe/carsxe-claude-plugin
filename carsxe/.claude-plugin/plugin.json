@@ -1,12 +1,16 @@
 {
   "name": "carsxe",
-  "description": "CarsXE vehicle data APIs — decode VINs, look up license plates, get market values, history, recalls (VIN, YMM, or batch), YMM options, ownership, lien and theft, OBD codes, and more.",
-  "version": "1.2.0",
+  "displayName": "CarsXE for Claude",
+  "description": "CarsXE vehicle data for Claude — decode VINs and plates, check recalls and market value, get specs, history, images, lien/theft, OBD codes, and read a VIN or plate from a photo.",
+  "version": "1.3.0",
   "author": {
-    "name": "CarsXE",
-    "email": "devops@carsxe.com"
+    "name": "CarsXE, Inc.",
+    "email": "abraham@carsxe.com"
   },
   "homepage": "https://carsxe.com",
+  "documentationUrl": "https://docs.carsxe.com/docs/integrations/claude-quickstart",
+  "supportUrl": "https://carsxe.com/contact",
+  "privacyPolicyUrl": "https://carsxe.com/privacy-policy",
   "license": "MIT",
   "repository": "https://github.com/carsxe/carsxe-claude-plugin",
   "category": "automotive",
