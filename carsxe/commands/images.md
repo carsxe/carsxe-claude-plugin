@@ -1,6 +1,10 @@
+---
+description: Fetch vehicle photos by make, model, and optional year via the CarsXE MCP server.
+---
+
 # CarsXE — Vehicle Images
 
-Retrieve images for a vehicle using the CarsXE Images API.
+Retrieve images for a vehicle using the CarsXE MCP tool `get_vehicle_images`.
 
 ## Steps
 
@@ -20,17 +24,13 @@ Retrieve images for a vehicle using the CarsXE Images API.
 
 2. If `make` or `model` are missing, ask the user to provide them.
 
-3. Make an HTTP GET request:
+3. If the `carsxe` MCP tools are unavailable, follow `/carsxe:auth` to connect. Call the hosted MCP tools rather than REST endpoints.
 
-   ```
-   GET https://api.carsxe.com/images?key=<CARSXE_API_KEY>&make=<MAKE>&model=<MODEL>&source=claude_plugin[&year=<YEAR>][&trim=<TRIM>][&color=<COLOR>][&transparent=<TRANSPARENT>][&angle=<ANGLE>][&photoType=<PHOTOTYPE>][&size=<SIZE>][&license=<LICENSE>]
-   ```
+4. Call `get_vehicle_images` with `make` and `model`, plus optional filters the user specified.
 
-   Replace `<CARSXE_API_KEY>` with the value of the environment variable `CARSXE_API_KEY`. Only include optional parameters if the user specified them.
-
-4. Present the results:
+5. Present the results:
    - List all returned image URLs
    - Display each image inline if the environment supports it
    - Label each image with angle/type if available
 
-5. Handle errors gracefully (no images found, invalid params, auth error).
+6. Handle errors gracefully (no images found, invalid params, not connected).

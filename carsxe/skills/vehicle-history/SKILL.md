@@ -1,19 +1,17 @@
 ---
 name: vehicle-history
-description: Retrieve a vehicle history report from a VIN using the CarsXE API. Use this when a user wants to know a car's history — past owners, accidents, title status, odometer readings, or whether it's been in a crash.
+description: Retrieve a vehicle history report from a VIN using the CarsXE MCP server. Use this when a user wants to know a car's history — past owners, accidents, title status, odometer readings, or whether it's been in a crash.
 ---
 
 When the user asks about a vehicle's history, past accidents, title status, or ownership:
 
-1. Call the CarsXE History API:
-   ```
-   GET https://api.carsxe.com/history?key={CARSXE_API_KEY}&vin={VIN}&source=claude_plugin
-   ```
-2. Summarize the history report:
+1. If the `carsxe` MCP tools are unavailable, follow `/carsxe:auth` to connect. Call the hosted MCP tools rather than REST endpoints.
+2. Call `get_vehicle_history` with `{ "vin": "<VIN>" }`.
+3. Summarize the history report:
    - Number of previous owners
    - Accident / damage records
    - Title status (clean, salvage, rebuilt, lemon)
    - Odometer history
    - Theft records
-3. Clearly highlight any red flags (salvage title, accidents, odometer rollback).
-4. If the API key is missing, tell the user to set the `CARSXE_API_KEY` environment variable.
+4. Clearly highlight any red flags (salvage title, accidents, odometer rollback).
+5. If the connector is not signed in, tell the user to run `/carsxe:auth` and sign in with their CarsXE account.
